@@ -5,11 +5,11 @@ FROM golang:1.24 AS build
 WORKDIR /app
 
 # Download Go modules
-COPY container/go.mod container/go.sum ./
+COPY ./go.mod ./go.sum ./
 RUN go mod download
 
 # Copy container src
-COPY container/*.go ./
+COPY ./*.go ./
 # Build
 RUN CGO_ENABLED=0 GOOS=linux go build -o /server
 
