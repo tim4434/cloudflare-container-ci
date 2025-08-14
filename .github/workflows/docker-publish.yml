@@ -33,6 +33,6 @@ jobs:
         uses: cloudflare/wrangler-action@v3.1.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: containers build --push -t cloudflare-container-ci:${{ github.sha }}
+          command: containers build ./Dockerfile -p -t cloudflare-container-ci:${{ github.sha }}
           preCommands: wrangler -v
           wranglerVersion: "4.29.1"
