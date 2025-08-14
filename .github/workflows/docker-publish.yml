@@ -60,3 +60,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: containers build --push
+          preCommands: wrangler -v
+          wranglerVersion: "4.29.1"
